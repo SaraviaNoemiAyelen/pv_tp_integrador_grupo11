@@ -1,35 +1,33 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./App.css";
+import { Routes, Route, Link } from "react-router-dom";
+
+import NavBar from "./components/NavBar.jsx";
+import Home from "./components/Home.jsx";
+import FavoritesPage from "./pages/FavoritesPage.jsx";
+
+import ProductDetailPage from "./pages/ProductDetailPage.jsx";
+import { Provider } from "react-redux";
+import Header from "./views/Header/Header.jsx";
+import ProductForm from "./services/ProductForm.jsx";
+import Footer from "./views/Footer/Footer.jsx";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <NavBar></NavBar>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/favorites" element={<FavoritesPage />} />
+        <Route path="/productos/:id" element={<ProductDetailPage />} />
+        <Route path="/create-product" element={<ProductForm />} />
+        <Route path="/edit-product/:productId" element={<ProductForm />} />
+      </Routes>
+      <Footer></Footer>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
