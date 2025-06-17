@@ -1,0 +1,31 @@
+header {
+  background-color: #9f7aea;
+  color: white;
+  padding: 1rem 0;
+  position: relative;
+  z-index: 10;
+}
+
+.promo-banner {
+  background-color: #6b46c1;
+  padding: 0.7rem;
+  text-align: center;
+}
+
+.promo-text {
+  font-weight: bold;
+  color: #fff;
+  font-size: 1rem;
+}
+
+.main-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
