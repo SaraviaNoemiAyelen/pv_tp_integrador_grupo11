@@ -18,8 +18,8 @@ VioletShop es una tienda online ficticia desarrollada como proyecto de práctica
 
 ### 1. Cloná el repositorio
 
-git clone https://github.com/SaraviaNoemiAyelen/pv_tp_integrador_grupo11.git
-cd tp_integrador_grupo11
+* git clone https://github.com/SaraviaNoemiAyelen/pv_tp_integrador_grupo11.git
+* cd tp_integrador_grupo11
 
 ### 2. Instalá las dependencias
 
@@ -33,13 +33,13 @@ La aplicación se abrirá en tu navegador en `http://localhost:5173` (si usás V
 
 ## 📁 Estructura del proyecto
 
-src/
-├── components/         # NavBar, Home, etc.
-├── pages/              # Páginas como FavoritesPage, ProductDetailPage
-├── services/           # Formulario para productos
-├── redux/              # store.js y slices
-├── views/              # Header y Footer
-└── App.jsx             # Configuración de rutas
+* src/
+* ├── components/         # NavBar, Home, etc.
+* ├── pages/              # Páginas como FavoritesPage, ProductDetailPage
+* ├── services/           # Formulario para productos
+* ├── redux/              # store.js y slices
+* ├── views/              # Header y Footer
+* └── App.jsx             # Configuración de rutas
 
 ## 🛠️ Tecnologías utilizadas
 
@@ -51,9 +51,9 @@ src/
 
 ## 📚 Autores
 
--Marcela Susana Guzmán (User en git: @marchesg)
--Axel Humberto Nahuel Llampa (User en git: @Llampax)
--Matias Esteban Mamani (User en git: @Matias-Mamani5315)
--Camila Isabel Mendoza (User en git: @Isabelafk)
--Noemí Ayelén Saravia (User en git: @SaraviaNoemiAyelen)
+* -Marcela Susana Guzmán (User en git: @marchesg)
+* -Axel Humberto Nahuel Llampa (User en git: @Llampax)
+* -Matias Esteban Mamani (User en git: @Matias-Mamani5315)
+* -Camila Isabel Mendoza (User en git: @Isabelafk)
+* -Noemí Ayelén Saravia (User en git: @SaraviaNoemiAyelen)
 
