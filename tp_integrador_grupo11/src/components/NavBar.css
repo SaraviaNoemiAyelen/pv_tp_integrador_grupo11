@@ -1,30 +1,87 @@
 .nav-bar {
-    background-color: #d8b4f8;
-    padding: 10px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-image: url("/public/nubes.png"); 
+  background-size: cover;    
+  background-position: center; 
+  background-repeat: no-repeat; 
+  color: white; 
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.links ul {
-    display: flex;
-    list-style: none;
-    gap: 20px;
-    margin: 0;
-    padding: 0;
-}
-
-.links a {
-    font-weight: bold;
-    color: #fff;
-    transition: color 0.2s;
-}
-
-.links a:hover {
-    color: #333;
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .logo-nav img {
-    height: 40px;
+  height: 40px;
+  width: auto;
+  margin-right: 0;
+  padding-right: 10px;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  color: #000000;
+  font-weight: bold;
+  font-size: 1.1rem;
+  padding: 5px 10px;
+  border-radius: 20px;
+  background-color: #cc9cff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.2s;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.links ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  padding: 0;
+  margin: 0;
+}
+
+.links li {
+  display: inline-block;
+}
+
+.links a {
+  font-weight: bold;
+  color: #fff;
+  transition: color 0.2s;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  background-color: #8b5cf6;
+  font-weight: bold;
+}
+
+.links a:hover {
+  background-color: #7c3aed;
+  color: white;
+}
+
+.logout-button {
+  background-color: #ffffff;
+  color: #7c2dbe;
+  border: 2px solid #7c2dbe;
+  padding: 6px 12px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.logout-button:hover {
+  background-color: #7c2dbe;
+  color: #ffffff;
 }
