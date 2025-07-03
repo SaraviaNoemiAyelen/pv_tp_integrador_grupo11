@@ -135,7 +135,9 @@ function ProductDetailsPage() {
             </button>
           </Link>
         </div>
-        <img src={product.image} alt={product.title} />
+        <div className="fixed-image-box">
+          <img src={product.image} alt={product.title} />
+        </div>
       </div>
       <div className="product-info">
         <div className="nombre">
@@ -158,11 +160,15 @@ function ProductDetailsPage() {
             <p className="current-price">
               USD {product.price ? product.price.toFixed(2) : "N/A"}
             </p>
-            <p className="product-stock">Stock: {product.rating ? product.rating.count : "N/A"}</p>
+            <p className="product-stock">Stock: {typeof product.stock === "number" ? product.stock : "N/A"}</p>
           </div>
           <div className="product-description-section">
             <p className="label-text">Descripción</p>
             <p>{product.description}</p>
+          </div>
+          <div className="product-description-section">
+            <p className="label-text">Categoría:</p>
+            <p>{product.category}</p>
           </div>
           <Link to={`/edit-product/${product.id}`} className="edit-button-link">
             <button className="edit-product-button">
