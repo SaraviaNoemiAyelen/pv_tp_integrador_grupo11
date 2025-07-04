@@ -24,6 +24,8 @@ VioletShop es una tienda online ficticia desarrollada como proyecto de práctica
 ### 2. Instalá las dependencias
 
 npm install react-router-dom react-redux @reduxjs/toolkit
+npm install @fortawesome/react-fontawesome @fortawesome/free-solid-svg-icons
+npm install sweetalert2
 
 ### 3. Ejecutá el proyecto en modo desarrollo
 
