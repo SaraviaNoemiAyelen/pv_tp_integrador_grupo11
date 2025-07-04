@@ -10,7 +10,9 @@ function Footer() {
         <div className="footer-section about">
           <h3>Acerca De</h3>
           <p>
-            Pensar en una buena descripción
+            En VioletShop creemos en ofrecer productos únicos <br />
+            con estilo y calidad. Tu satisfacción es nuestra prioridad. <br />
+            Envíos a todo el país y atención rápida por WhatsApp o redes.
           </p>
         </div>
 
@@ -71,7 +73,7 @@ function Footer() {
 
       <div className="footer-bottom">
         <p>&copy; {currentYear} Todos los derechos reservados.</p>
-        <p>Desarrollado con en React.</p>
+        <p>Desarrollado con ❤️ en React.</p>
       </div>
     </footer>
   );
