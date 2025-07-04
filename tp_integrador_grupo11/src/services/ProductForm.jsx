@@ -6,6 +6,7 @@ import {
   editProduct,
   selectProductById,
 } from "../redux/productSlice";
+import { showSuccess, showWarning, confirmAction, showError } from "../utils/alerts";
 
 import "./ProductForm.css";
 
@@ -22,6 +23,7 @@ const ProductForm = () => {
     description: "",
     category: "",
     image: "",
+    stock: "",
     rating: {
       rate: "",
       count: "",
@@ -40,9 +42,14 @@ const ProductForm = () => {
         description: existingProduct.description || "",
         category: existingProduct.category || "",
         image: existingProduct.image || "",
+        stock:
+          existingProduct.stock !== undefined
+            ? existingProduct.stock.toString()
+            : "",
       });
     } else if (productId && !existingProduct) {
-   console.warn(`Producto con ID ${productId} no encontrado para edición.`);
+      showError("No se encontró el producto para editar.");
+      navigate("/");
     }
   }, [productId, existingProduct]);
 
@@ -54,36 +61,51 @@ const ProductForm = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
     if (
       !formData.title ||
       !formData.price ||
       !formData.description ||
       !formData.category ||
-      !formData.image
+      !formData.image ||
+      formData.stock === ""
     ) {
-      alert("Por favor, completa todos los campos.");
+      showWarning("Por favor, completá todos los campos antes de continuar.");
       return;
     }
 
     const productToSave = {
       ...formData,
       price: parseFloat(formData.price),
+      stock: parseInt(formData.stock, 10),
     };
 
+    const confirmed = await confirmAction({
+      title: productId ? "¿Confirmar modificación?" : "¿Confirmar creación?",
+      text: productId
+        ? "Vas a modificar los datos del producto."
+        : "Estás por crear un nuevo producto.",
+      confirmButtonText: productId ? "Sí, modificar" : "Sí, crear",
+    });
+
+    if (!confirmed) {
+      showWarning("Operación cancelada por el usuario.");
+      return;
+    }
+
     if (productId) {
-      // Modo edición
       dispatch(
         editProduct({
           id: parseInt(productId, 10),
           updatedProduct: productToSave,
         })
       );
-      alert("Producto actualizado con éxito (simulado en el estado global).");
+      showSuccess("El producto fue actualizado correctamente.");
     } else {
       dispatch(addProduct(productToSave));
-      alert("Producto añadido con éxito (simulado en el estado global).");
+      showSuccess("El nuevo producto se ha creado exitosamente.");
     }
 
     navigate("/");
@@ -129,15 +151,38 @@ const ProductForm = () => {
         </div>
         <div className="form-group">
           <label htmlFor="category">Categoría:</label>
-          <input
-            type="text"
+          <select
+            className="form-select"
             id="category"
             name="category"
             value={formData.category}
             onChange={handleChange}
             required
+          >
+            <option value="">Seleccioná una categoría</option>
+            <option value="Joyería">Joyería</option>
+            <option value="Ropa de Hombre">Ropa de Hombre</option>
+            <option value="Ropa de Mujer">Ropa de Mujer</option>
+            <option value="Electrónica">Electrónica</option>
+            <option value="Hogar">Hogar</option>
+            <option value="Deportes">Deportes</option>
+          </select>
+        </div>
+
+        {/* NUEVO CAMPO STOCK */}
+        <div className="form-group">
+          <label htmlFor="stock">Stock:</label>
+          <input
+            type="number"
+            id="stock"
+            name="stock"
+            value={formData.stock}
+            onChange={handleChange}
+            required
+            min="0"
           />
         </div>
+
         <div className="form-group">
           <label htmlFor="image">URL de la Imagen:</label>
           <input
@@ -164,4 +209,4 @@ const ProductForm = () => {
   );
 };
 
-export default ProductForm;
+export default ProductForm;
